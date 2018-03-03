@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>FourQuadrantAppBeta</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <% if signed_in? %>
+        <%= link_to "ホーム", root_path %>
+        <%= link_to "新規タスク", new_task_path %>
+        <%= link_to "サインアウト", destroy_user_session_path, method: "delete" %>
+      <% else %>
+        <%= link_to "四象限について" %>
+        <%= link_to "サインイン", new_user_session_path %>
+      <% end %>
+    </header>
+
+    <%= yield %>
+
+    <footer>四象限について</footer>
+
+  </body>
+</html>

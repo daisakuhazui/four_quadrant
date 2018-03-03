@@ -1,0 +1,17 @@
+<h1>Tasks#new</h1>
+<%= form_for(@task) do |f| %>
+  <%= f.text_area :title %>
+  <%= f.hidden_field :user_id %>
+
+  <%= f.radio_button :importance, :重要度高 %>
+  <%= f.label :重要度高 %>
+  <%= f.radio_button :importance, :重要度低 %>
+  <%= f.label :重要度低 %>
+
+  <%= f.radio_button :urgency, :緊急度高 %>
+  <%= f.label :緊急度高 %>
+  <%= f.radio_button :urgency, :緊急度低 %>
+  <%= f.label :緊急度低 %>
+
+  <%= f.submit "タスクを保存" %>
+<% end %>

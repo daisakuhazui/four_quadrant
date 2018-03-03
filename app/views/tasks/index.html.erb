@@ -1,0 +1,23 @@
+<h1>Tasks#index</h1>
+<p>Find me in app/views/tasks/index.html.erb</p>
+
+
+<div>
+  <h2>必須</h2>
+  <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @first_quadrant_tasks } %>
+</div>
+
+<div>
+  <h2>必要</h2>
+  <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @second_quadrant_tasks } %>
+</div>
+
+<div>
+  <h2>錯覚</h2>
+  <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @third_quadrant_tasks } %>
+</div>
+
+<div>
+  <h2>無駄</h2>
+  <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @fourth_quadrant_tasks } %>
+</div>
