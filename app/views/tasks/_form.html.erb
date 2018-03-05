@@ -5,23 +5,30 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title">新規タスク</h4>
       </div>
       <div class="modal-body">
         <div class="field">
-          <%= f.label :title %><br>
-          <%= f.text_field :title %>
+          <%= f.text_field :title, id: "task-form" ,class: "form-control", autofocus: true, placeholder: "ここにタスクを入力してください" %>
           <%= f.hidden_field :user_id %>
 
-          <%= f.radio_button :importance, :重要度高 %>
-          <%= f.label :重要度高 %>
-          <%= f.radio_button :importance, :重要度低 %>
-          <%= f.label :重要度低 %>
-
-          <%= f.radio_button :urgency, :緊急度高 %>
-          <%= f.label :緊急度高 %>
-          <%= f.radio_button :urgency, :緊急度低 %>
-          <%= f.label :緊急度低 %>
+          <ul class="nav nav-pills">
+            <li class="nav-item select-quadrant">
+              <%= f.radio_button :quadrant, :必須 %>
+              <%= f.label :必須 %>
+            </li>
+            <li class="nav-item select-quadrant">
+              <%= f.radio_button :quadrant, :必要 %>
+              <%= f.label :必要 %>
+            </li>
+            <li class="nav-item select-quadrant">
+              <%= f.radio_button :quadrant, :錯覚 %>
+              <%= f.label :錯覚 %>
+            </li>
+            <li class="nav-item select-quadrant">
+              <%= f.radio_button :quadrant, :無駄 %>
+              <%= f.label :無駄 %>
+            </li>
+          </ul>
         </div>
       </div>
         <div class="modal-footer">

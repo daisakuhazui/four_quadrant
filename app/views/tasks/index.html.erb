@@ -1,21 +1,25 @@
-<h1>Tasks#index</h1>
-<div>
-  <h2>必須</h2>
-  <%= link_to "「必須」のタスク追加", new_task_path, remote: true %>
-  <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @first_quadrant_tasks } %>
-</div>
+  <ul class="quadrants">
+    <li class="quadrant-space">
+      <h2>必須</h2>
+      <p class="form-text text-muted p2">重要だし緊急なものたち</p>
+        <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @first_quadrant_tasks } %>
+    </li>
 
-<div>
-  <h2>必要</h2>
-    <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @second_quadrant_tasks } %>
-</div>
+    <li class="quadrant-space">
+      <h2>必要</h2>
+      <p class="form-text text-muted p2">重要だけれど緊急ではないものたち</p>
+        <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @second_quadrant_tasks } %>
+    </li>
 
-<div>
-  <h2>錯覚</h2>
-  <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @third_quadrant_tasks } %>
-</div>
+    <li class="quadrant-space">
+      <h2>錯覚</h2>
+      <p class="form-text text-muted p2">重要ではないけれど緊急なものたち</p>
+      <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @third_quadrant_tasks } %>
+    </li>
 
-<div>
-  <h2>無駄</h2>
-  <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @fourth_quadrant_tasks } %>
-</div>
+    <li class="quadrant-space">
+      <h2>無駄</h2>
+      <p class="form-text text-muted p2">重要でもないし緊急でもない無駄なものたち</p>
+        <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @fourth_quadrant_tasks } %>
+    </li>
+  </ul>

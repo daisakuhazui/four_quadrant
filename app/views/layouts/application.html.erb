@@ -3,35 +3,49 @@
   <head>
     <meta charset="utf-8">
     <title>FourQuadrantAppBeta</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <% if signed_in? %>
-        <%= link_to "ホーム", root_path %>
-        <%= link_to "新規タスク", new_task_path, remote: true %>
-        <%= link_to "サインアウト", destroy_user_session_path, method: "delete" %>
-      <% else %>
-        <%= link_to "四象限について" %>
-        <%= link_to "サインイン", new_user_session_path %>
-      <% end %>
-    </header>
+  <body class="bg-light">
+      <div id="header" class="border-bottom bg-dark">
+        <div class="container">
+            <%= link_to "四象限 Four Quadrants", root_path, id: "logo" %>
+            <nav>
+              <ul class="header-menu nav justify-content-end header-link">
+                <% if signed_in? %>
+                  <li class="nav-item"><%= link_to " ホーム", root_path, class: "nav-link fas fa-home" %></li>
+                  <li class="nav-item"><%= link_to " 新規タスク", new_task_path, class: "nav-link fas fa-edit", remote: true %></li>
+                  <li class="nav-item"><%#= link_to " 使い方", "#" ,class: "nav-link fas fa-question" %></li>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-cog fa-lg"></i>
+                    </button>
+                    <div class="dropdown-menu drop-down-link" aria-labelledby="dropdownMenu2">
+                      <button class="dropdown-item" type="button"><%= link_to "ログイン情報更新", edit_user_registration_path %></button>
+                      <button class="dropdown-item" type="button"><%= link_to "サインアウト", destroy_user_session_path, method: "delete" %></button>
+                    </div>
+                  </div>
 
-    <div id="task-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+                <% else %>
+                  <li class="nav-item"><%= link_to "四象限について", "#", class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to "サインイン", new_user_session_path, class: "nav-link" %></li>
+                <% end %>
+              </ul>
+            </nav>
+        </div>
+      </div>
 
-    <%= yield %>
-
-    <footer>四象限について</footer>
-
+      <div class="container">
+        <div id="task-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+          <%= yield %>
+      </div>
   </body>
 </html>

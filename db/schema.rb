@@ -14,10 +14,9 @@ ActiveRecord::Schema.define(version: 20180228155554) do
 
   create_table "tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
-    t.string "title"
+    t.string "title", null: false
     t.datetime "deadline"
-    t.integer "urgency", limit: 1, default: 0, null: false
-    t.integer "importance", limit: 1, default: 0, null: false
+    t.integer "quadrant", limit: 1, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tasks_on_user_id"

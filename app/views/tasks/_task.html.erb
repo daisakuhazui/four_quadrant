@@ -1,3 +1,4 @@
-<%= link_to "完了", task_path(task), method: :delete, data: {confirm: "タスクを完了しますか？" } %>
-<%= task.title %>
-<%= task.deadline %>
+<div class="task">
+  <%= link_to "", task_path(task), method: :delete, data: {confirm: "タスクを完了しますか？" }, class: "fas fa-minus-circle faa-wrench animated-hover my-red" %>
+  <%= task.title %>
+</div>

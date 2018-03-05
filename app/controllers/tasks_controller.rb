@@ -1,12 +1,13 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_task, except: :index
 
   def index
     @tasks = current_user.tasks
-    @first_quadrant_tasks = Task.where(user_id: current_user.id).where(importance: 0).where(urgency: 0)
-    @second_quadrant_tasks = Task.where(user_id: current_user.id).where(importance: 0).where(urgency: 1)
-    @third_quadrant_tasks = Task.where(user_id: current_user.id).where(importance: 1).where(urgency: 0)
-    @fourth_quadrant_tasks = Task.where(user_id: current_user.id).where(importance: 1).where(urgency: 1)
+    @first_quadrant_tasks = Task.where(user_id: current_user.id).where(quadrant: 0)
+    @second_quadrant_tasks = Task.where(user_id: current_user.id).where(quadrant: 1)
+    @third_quadrant_tasks = Task.where(user_id: current_user.id).where(quadrant: 2)
+    @fourth_quadrant_tasks = Task.where(user_id: current_user.id).where(quadrant: 3)
   end
 
   def new
@@ -45,8 +46,7 @@ class TasksController < ApplicationController
       :user_id,
       :title,
       :deadline,
-      :urgency,
-      :importance
+      :quadrant
     )
   end
 
