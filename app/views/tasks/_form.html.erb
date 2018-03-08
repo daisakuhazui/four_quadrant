@@ -8,10 +8,10 @@
       </div>
       <div class="modal-body">
         <div class="field">
-          <%= f.text_field :title, id: "task-form" ,class: "form-control", autofocus: true, placeholder: "ここにタスクを入力してください" %>
+          <%= f.text_field :title, id: "task-form" ,id: "task-form",class: "form-control", placeholder: "ここにタスクを入力してください(50文字以内)" %>
           <%= f.hidden_field :user_id %>
 
-          <ul class="nav nav-pills">
+          <ul class="nav ">
             <li class="nav-item select-quadrant">
               <%= f.radio_button :quadrant, :必須 %>
               <%= f.label :必須 %>
