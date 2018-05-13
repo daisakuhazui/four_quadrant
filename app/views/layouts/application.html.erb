@@ -23,7 +23,7 @@
                 <% if signed_in? %>
                   <li class="nav-item"><%= link_to " ホーム", root_path, class: "nav-link fas fa-home" %></li>
                   <li class="nav-item"><%= link_to " 新規タスク", new_task_path, class: "nav-link fas fa-edit", remote: true %></li>
-                  <li class="nav-item"><%#= link_to " 使い方", "#" ,class: "nav-link fas fa-question" %></li>
+                  <li class="nav-item"><%= link_to " 使い方", static_pages_help_path ,class: "nav-link fas fa-question" %></li>
                   <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-cog fa-lg"></i>
@@ -32,13 +32,13 @@
                       <div class="user-info"><%= current_user.email %></div>
                       <div class="dropdown-divider"></div>
                       <button class="dropdown-item" type="button"><%= link_to "ログイン情報更新", edit_user_registration_path %></button>
-                      <button class="dropdown-item" type="button"><%= link_to "アップデート情報", "#" %></button>
+                      <button class="dropdown-item" type="button"><%= link_to "アップデート情報", static_pages_history_path %></button>
                       <button class="dropdown-item" type="button"><%= link_to "サインアウト", destroy_user_session_path, method: "delete" %></button>
                     </div>
                   </div>
 
                 <% else %>
-                  <li class="nav-item"><%= link_to "四象限について", "#", class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to "四象限について", static_pages_about_path, class: "nav-link" %></li>
                   <li class="nav-item"><%= link_to "サインイン", new_user_session_path, class: "nav-link" %></li>
                 <% end %>
               </ul>
