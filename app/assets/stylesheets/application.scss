@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/* universal */
+/* PCでアプリケーションを開いた場合のCSS */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -44,6 +44,21 @@ h3 {
 
 .header-menu {
   padding: 15px 15px;
+}
+
+.pc-header {
+  /* PCサイズの時に表示させるがスマホサイズの時にはnoneに書き換える */
+  display: block;
+}
+
+.sp-header {
+  /* PCサイズの時に表示させないがスマホサイズの時にはblockに書き換える */
+  display: none;
+}
+
+.control-dropdown-menu {
+  /* ドロップダウンメニューが展開される位置を修正するクラス */
+  left: -180px;
 }
 
 .quadrants {
@@ -124,4 +139,36 @@ h3 {
 }
 
 .section {
+}
+
+
+
+/* スマホでアプリケーションを開いた場合のCSS */
+
+@media screen and (max-width:750px){
+/* 画面幅750px以下でアプリケーションを表示させた場合 */
+  .pc-header {
+    display: none;
+  }
+
+  .sp-header {
+    display: block;
+  }
+
+  .quadrants {
+    padding:15px;
+    display:block;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-content: space-around;
+    min-height: 870px;
+  }
+
+  .quadrants li {
+    margin: 15px 0;
+    width: 100%;
+    list-style: none;
+    min-height: 150px;
+    padding: 10px 10px;
+  }
 }
