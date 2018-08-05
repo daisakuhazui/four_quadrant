@@ -56,6 +56,11 @@ h3 {
   display: none;
 }
 
+.control-dropdown-menu {
+  /* ドロップダウンメニューが展開される位置を修正するクラス */
+  left: -180px;
+}
+
 .quadrants {
   padding:15px;
   display:flex;
