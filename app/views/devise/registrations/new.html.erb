@@ -14,6 +14,12 @@
         </div>
 
         <div class="field">
+          <%= f.label :ユーザーネーム %>
+          <em>(登録すると変更出来ません)</em><br />
+          <%= f.text_field :user_name, class: "form-control" %>
+        </div>
+
+        <div class="field">
           <%= f.label :パスワード %>
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %>文字以上)</em>
