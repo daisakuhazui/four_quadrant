@@ -19,11 +19,19 @@
         <div class="container">
             <%= link_to "四象限 Four Quadrants", root_path, id: "logo" %>
             <nav>
-              <ul class="header-menu nav justify-content-end header-link">
+              <ul class="header-menu nav d-flex justify-content-end header-link">
                 <% if signed_in? %>
-                  <li class="nav-item"><%= link_to " ホーム", root_path, class: "nav-link fas fa-home" %></li>
-                  <li class="nav-item"><%= link_to " 新規タスク", new_task_path, class: "nav-link fas fa-edit", remote: true %></li>
-                  <li class="nav-item"><%= link_to " 使い方", static_pages_help_path ,class: "nav-link fas fa-question" %></li>
+                  <!--ここからPC用ヘッダーメニュー-->
+                  <li class="nav-item pc-header"><%= link_to " ホーム", root_path, class: "nav-link fas fa-home" %></li>
+                  <li class="nav-item pc-header"><%= link_to " 新規タスク", new_task_path, class: "nav-link fas fa-edit", remote: true %></li>
+                  <li class="nav-item pc-header"><%= link_to " 使い方", static_pages_help_path ,class: "nav-link fas fa-question" %></li>
+                  <!--PC用ヘッダーメニューここまで-->
+                  <!--ここからスマホ用ヘッダーメニュー-->
+                  <li class="nav-item sp-header"><%= link_to " ", root_path, class: "nav-link fas fa-home" %></li>
+                  <li class="nav-item sp-header"><%= link_to " ", new_task_path, class: "nav-link fas fa-edit", remote: true %></li>
+                  <li class="nav-item sp-header"><%= link_to " ", static_pages_help_path ,class: "nav-link fas fa-question" %></li>
+                  <!--スマホ用ヘッダーメニューここまで-->
+                  <!--ここから設定ボタン-->
                   <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-cog fa-lg"></i>
@@ -36,11 +44,14 @@
                       <button class="dropdown-item" type="button"><%= link_to "サインアウト", destroy_user_session_path, method: "delete" %></button>
                     </div>
                   </div>
+                  <!--設定ボタンここまで-->
 
                 <% else %>
+                <!--未ログイン時のヘッダーメニュー-->
                   <li class="nav-item"><%= link_to "四象限について", static_pages_about_path, class: "nav-link" %></li>
                   <li class="nav-item"><%= link_to "サインイン", new_user_session_path, class: "nav-link" %></li>
                 <% end %>
+                <!--未ログイン時のヘッダーメニューここまで-->
               </ul>
             </nav>
         </div>

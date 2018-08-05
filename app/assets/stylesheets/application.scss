@@ -46,6 +46,16 @@ h3 {
   padding: 15px 15px;
 }
 
+.pc-header {
+  /* PCサイズの時に表示させるがスマホサイズの時にはnoneに書き換える */
+  display: block;
+}
+
+.sp-header {
+  /* PCサイズの時に表示させないがスマホサイズの時にはblockに書き換える */
+  display: none;
+}
+
 .quadrants {
   padding:15px;
   display:flex;
@@ -131,6 +141,15 @@ h3 {
 /* スマホでアプリケーションを開いた場合のCSS */
 
 @media screen and (max-width:750px){
+/* 画面幅750px以下でアプリケーションを表示させた場合 */
+  .pc-header {
+    display: none;
+  }
+
+  .sp-header {
+    display: block;
+  }
+
   .quadrants {
     padding:15px;
     display:block;
@@ -139,7 +158,7 @@ h3 {
     align-content: space-around;
     min-height: 870px;
   }
-  
+
   .quadrants li {
     margin: 15px 0;
     width: 100%;
