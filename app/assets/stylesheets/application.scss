@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/* universal */
+/* PCでアプリケーションを開いた場合のCSS */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -124,4 +124,27 @@ h3 {
 }
 
 .section {
+}
+
+
+
+/* スマホでアプリケーションを開いた場合のCSS */
+
+@media screen and (max-width:750px){
+  .quadrants {
+    padding:15px;
+    display:block;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-content: space-around;
+    min-height: 870px;
+  }
+  
+  .quadrants li {
+    margin: 15px 0;
+    width: 100%;
+    list-style: none;
+    min-height: 150px;
+    padding: 10px 10px;
+  }
 }
