@@ -1,12 +1,18 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
     <p class="page-header">ログイン情報変更</p>
+    <p>こんにちは、<%= current_user.user_name %>さん</p>
 
     <hr></hr>
 
     <div class="form-group">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
+
+      <div class="field">
+        <%= f.label :ユーザーネーム %><br />
+        <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "form-control" %>
+      </div>
 
       <div class="field">
         <%= f.label :メールアドレス %><br />
