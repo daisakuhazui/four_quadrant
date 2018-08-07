@@ -1,24 +1,21 @@
   <ul class="quadrants">
     <li class="quadrant-space">
-      <h2>必須</h2>
+      <h2>必須<%= link_to "", new_task_path, class: "nav-link fas fa-edit", remote: true %></h2>
       <p class="form-text text-muted p2">重要だし緊急なものたち</p>
         <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @first_quadrant_tasks } %>
     </li>
-
     <li class="quadrant-space">
-      <h2>必要</h2>
+      <h2>必要<%= link_to "", new_task_path, class: "nav-link fas fa-edit", remote: true %></h2>
       <p class="form-text text-muted p2">重要だけれど緊急ではないものたち</p>
         <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @second_quadrant_tasks } %>
     </li>
-
     <li class="quadrant-space">
-      <h2>錯覚</h2>
+      <h2>錯覚<%= link_to "", new_task_path, class: "nav-link fas fa-edit", remote: true %></h2>
       <p class="form-text text-muted p2">重要ではないけれど緊急なものたち</p>
       <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @third_quadrant_tasks } %>
     </li>
-
     <li class="quadrant-space">
-      <h2>無駄</h2>
+      <h2>無駄<%= link_to "", new_task_path, class: "nav-link fas fa-edit", remote: true %></h2>
       <p class="form-text text-muted p2">重要でもないし緊急でもない無駄なものたち</p>
         <%= render partial: 'tasks/feed_tasks', locals: { quadrant_tasks: @fourth_quadrant_tasks } %>
     </li>
