@@ -3,6 +3,7 @@
 
 /* PCでアプリケーションを開いた場合のCSS */
 
+/* Bootstrap4のクラスを上書きする */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -30,6 +31,13 @@ a {
   color: #343a40;
 }
 
+.btn-primary {
+  color: #fff;
+  background-color: #1d2125;
+  border-color: #1d2125;
+}
+
+/* 独自に追加したCSSクラスやid */
 #logo {
   float: left;
   margin-right: 10px;
@@ -45,7 +53,6 @@ a {
 #logo:hover {
   text-decoration: none;
 }
-
 
 .header-menu {
   padding: 15px 15px;
